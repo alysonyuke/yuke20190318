@@ -7,4 +7,82 @@
     android:layout_height="match_parent"
     tools:context="shopping.example.sd.shopping.show.ShowActivity">
 
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp">
+    </FrameLayout>
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/bottom"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <RadioButton
+            android:id="@+id/home"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btnhome"
+            android:button="@null"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/circle"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btncricle"
+            android:button="@null" />
+
+        <RadioButton
+            android:id="@+id/shopping"
+            android:layout_width="30dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btnshop"
+            android:button="@null" />
+
+        <RadioButton
+            android:id="@+id/order"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btnorder"
+            android:button="@null" />
+
+        <RadioButton
+            android:id="@+id/mine"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btnmine"
+            android:button="@null" />
+    </RadioGroup>
+
 </android.support.constraint.ConstraintLayout>

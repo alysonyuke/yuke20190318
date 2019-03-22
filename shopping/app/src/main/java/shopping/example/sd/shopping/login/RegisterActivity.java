@@ -20,7 +20,6 @@ import shopping.example.sd.shopping.login.bean.LoginBean;
 import shopping.example.sd.shopping.login.bean.RegsinBean;
 import shopping.example.sd.shopping.login.mvp.ImpView;
 import shopping.example.sd.shopping.login.mvp.LoginPresenter;
-import shopping.example.sd.shopping.show.ShowActivity;
 
 public class RegisterActivity extends AppCompatActivity implements ImpView {
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="174dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/item"
+        android:elevation="4dp"
+        android:gravity="center">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/hotsell_img"
+            android:layout_width="120dp"
+            android:layout_height="102dp"/>
+        <TextView
+            android:id="@+id/hotsell_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxEms="9"
+            android:maxLines="1"
+            android:text="123" />
+        <TextView
+            android:id="@+id/hotsell_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="123"
+            android:textColor="#f00" />
+    </LinearLayout>
+</LinearLayout>

@@ -19,7 +19,6 @@ android {
 }
 greendao {
     schemaVersion 1
-    //需要改包名
     daoPackage 'shopping.example.sd.shopping.gen'
     targetGenDir 'src/main/java'
 }
@@ -51,8 +50,4 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.github.xiaohaibin:XBanner:1.6.1'
-    implementation 'me.jessyan:autosize:1.1.2'
-
-
-
 }

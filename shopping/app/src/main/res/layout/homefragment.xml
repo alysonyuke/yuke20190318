@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <shopping.example.sd.shopping.show.adapter.Custom
+        android:id="@+id/customview"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+    </shopping.example.sd.shopping.show.adapter.Custom>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/searchshow"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+    //整个页面滑动
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            //=================魅族banner轮播============
+            <com.stx.xhb.xbanner.XBanner
+                android:id="@+id/xbanner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:isClipChildrenMode="true"
+                app:pageChangeDuration="1000"/>
+
+            //==================热销新品=======================
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#ff5f57"
+                android:background="@drawable/hotsell"
+                android:text="热销新品"/>
+            //RecyclerView--展示热销新品
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/show_hotsell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+            </android.support.v7.widget.RecyclerView>
+
+            //==================魔力时尚=======================
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#ff5f57"
+                android:background="@drawable/style"
+                android:text="魔丽时尚"/>
+            //RecyclerView--展示魔力时尚
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/show_style"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+            //==================品质生活=======================
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#ff5f57"
+                android:background="@drawable/life"
+                android:text="品质生活"/>
+            //RecyclerView--展示品质生活
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/show_life"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+
+
+
+

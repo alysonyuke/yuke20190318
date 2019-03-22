@@ -1,11 +1,10 @@
 package shopping.example.sd.shopping.login.mvp;
 
-import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
-import shopping.example.sd.shopping.login.api.API;
-import shopping.example.sd.shopping.login.api.ApiService;
+import shopping.example.sd.shopping.api.API;
+import shopping.example.sd.shopping.api.ApiService;
 import shopping.example.sd.shopping.login.bean.LoginBean;
 import shopping.example.sd.shopping.login.bean.RegsinBean;
 import shopping.example.sd.shopping.utils.RetrofitUtils;
