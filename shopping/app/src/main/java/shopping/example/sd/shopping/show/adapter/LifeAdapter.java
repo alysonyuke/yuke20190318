@@ -1,6 +1,7 @@
 package shopping.example.sd.shopping.show.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import shopping.example.sd.shopping.ParticularsActivity;
 import shopping.example.sd.shopping.R;
 import shopping.example.sd.shopping.bean.ShowDataBean;
 
@@ -35,8 +37,8 @@ public class LifeAdapter extends RecyclerView.Adapter<LifeAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LifeAdapter.ViewHolder viewHolder, int i) {
-        ShowDataBean.ResultBean.PzshBean Pzss = PzshBean.getResult().getPzsh();
+    public void onBindViewHolder(@NonNull LifeAdapter.ViewHolder viewHolder, final int i) {
+        final ShowDataBean.ResultBean.PzshBean Pzss = PzshBean.getResult().getPzsh();
         viewHolder.title.setText(Pzss.getCommodityList().get(i).getCommodityName());
         viewHolder.price.setText("￥"+Pzss.getCommodityList().get(i).getPrice());
         //加载图片
@@ -44,6 +46,14 @@ public class LifeAdapter extends RecyclerView.Adapter<LifeAdapter.ViewHolder> {
                 .setUri(Pzss.getCommodityList().get(i).getMasterPic())
                 .build();
         viewHolder.image.setController(controller);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,ParticularsActivity.class);
+                intent.putExtra("id",Pzss.getCommodityList().get(i).getCommodityId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

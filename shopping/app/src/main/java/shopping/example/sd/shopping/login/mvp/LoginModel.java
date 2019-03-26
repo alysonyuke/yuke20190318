@@ -20,7 +20,7 @@ public class LoginModel {
     }
 
     public void getLoginModel(String phone,String pwd){
-        ApiService apiService = RetrofitUtils.getInstance().doPost(API.loginUrl, ApiService.class);
+        ApiService apiService = RetrofitUtils.getInstance().doPost(API.Url, ApiService.class);
         apiService.getLoginUrl(phone,pwd).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<LoginBean>() {
@@ -53,7 +53,7 @@ public class LoginModel {
         this.regsinModel = regsinModel;
     }
     public void getRegsinModel(String phone,String pwd){
-        ApiService apiService = RetrofitUtils.getInstance().doPost(API.regsinUrl, ApiService.class);
+        ApiService apiService = RetrofitUtils.getInstance().doPost(API.Url, ApiService.class);
         apiService.getRegsinUrl(phone,pwd).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<RegsinBean>() {

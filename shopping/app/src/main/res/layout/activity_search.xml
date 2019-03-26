@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="shopping.example.sd.shopping.SearchActivity">
+    <shopping.example.sd.shopping.show.adapter.Custom
+        android:id="@+id/searchcustom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+    </shopping.example.sd.shopping.show.adapter.Custom>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/search_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:background="@drawable/searchgood"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/searchshow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

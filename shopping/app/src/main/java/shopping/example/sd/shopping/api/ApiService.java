@@ -6,6 +6,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
@@ -30,4 +31,6 @@ public interface ApiService {
     //点击搜素
     @GET("small/commodity/v1/findCommodityByKeyword")
     Flowable<SearchBean>getSearchUrl(@Query("keyword") String keyword,@Query("page") int page,@Query("count") int count);
+    @GET(API.DetailsUrl)
+    Flowable<DstailsBean> getDetailsUrl(@Query("commodityId") int id);
 }

@@ -1,6 +1,7 @@
 package shopping.example.sd.shopping.show.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
+import shopping.example.sd.shopping.ParticularsActivity;
 import shopping.example.sd.shopping.R;
 import shopping.example.sd.shopping.bean.SearchBean;
 
@@ -36,13 +38,21 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder viewHolder, final int i) {
         viewHolder.title.setText(searchbean.get(i).getCommodityName());
         viewHolder.price.setText(searchbean.get(i).getPrice()+"");
         AbstractDraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setUri(searchbean.get(i).getMasterPic())
                 .build();
         viewHolder.image.setController(controller);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,ParticularsActivity.class);
+                intent.putExtra("id",searchbean.get(i).getCommodityId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

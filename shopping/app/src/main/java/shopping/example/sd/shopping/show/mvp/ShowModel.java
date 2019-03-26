@@ -8,6 +8,7 @@ import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
 import shopping.example.sd.shopping.api.API;
 import shopping.example.sd.shopping.api.ApiService;
+import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
@@ -23,7 +24,7 @@ public class ShowModel {
         this.bannerModel = bannerModel;
     }
     public void getBannerModel(){
-        ApiService apiService = RetrofitUtils.getInstance().doPost(API.bannerUrl, ApiService.class);
+        ApiService apiService = RetrofitUtils.getInstance().doPost(API.Url, ApiService.class);
         apiService.getBannerUrl().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<ShowBannerBean>() {
@@ -56,7 +57,7 @@ public class ShowModel {
         this.dataModel = dataModel;
     }
     public  void getShowData(){
-        ApiService service = RetrofitUtils.getInstance().doPost(API.showDataUrl, ApiService.class);
+        ApiService service = RetrofitUtils.getInstance().doPost(API.Url, ApiService.class);
         Flowable<ShowDataBean> showDataUrl = service.getShowDataUrl();
         showDataUrl.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -89,7 +90,7 @@ public class ShowModel {
         this.searchModel = searchModel;
     }
     public void getSearchModel(String keyword,int page,int count){
-        ApiService doPost = RetrofitUtils.getInstance().doPost(API.searchUrl, ApiService.class);
+        ApiService doPost = RetrofitUtils.getInstance().doPost(API.Url, ApiService.class);
         doPost.getSearchUrl(keyword,page,count).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<SearchBean>() {
@@ -98,6 +99,38 @@ public class ShowModel {
                         List<SearchBean.ResultBean> result = searchBean.getResult();
                         if (searchModel!=null){
                             searchModel.onSearchModel(result);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public interface getDstailsModel{
+        void onDstailsModel(DstailsBean dstailsBean);
+    }
+    getDstailsModel dstailsModel;
+
+    public void setDstailsModel(getDstailsModel dstailsModel) {
+        this.dstailsModel = dstailsModel;
+    }
+    public void getDstailsModel(int id){
+        ApiService apiService = RetrofitUtils.getInstance().doPost(API.Url, ApiService.class);
+        apiService.getDetailsUrl(id).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSubscriber<DstailsBean>() {
+                    @Override
+                    public void onNext(DstailsBean dstailsBean) {
+                        if (dstailsModel!=null){
+                            dstailsModel.onDstailsModel(dstailsBean);
                         }
                     }
 

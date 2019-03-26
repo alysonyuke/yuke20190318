@@ -29,7 +29,8 @@
         </activity>
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".show.ShowActivity" />
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".ParticularsActivity"></activity>
     </application>
 
 </manifest>

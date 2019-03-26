@@ -1,5 +1,6 @@
 package shopping.example.sd.shopping.show.adapter;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import shopping.example.sd.shopping.ParticularsActivity;
 import shopping.example.sd.shopping.R;
 import shopping.example.sd.shopping.bean.ShowDataBean;
 
@@ -26,6 +28,7 @@ public class HotsellAdapter extends RecyclerView.Adapter<HotsellAdapter.ViewHold
         this.context = context;
         this.RxxpBean = RxxpBean;
     }
+
     @NonNull
     @Override
     public HotsellAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -35,15 +38,23 @@ public class HotsellAdapter extends RecyclerView.Adapter<HotsellAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HotsellAdapter.ViewHolder viewHolder, int i) {
-        ShowDataBean.ResultBean.RxxpBean rxxp = RxxpBean.getResult().getRxxp();
+    public void onBindViewHolder(@NonNull HotsellAdapter.ViewHolder viewHolder, final int i) {
+        final ShowDataBean.ResultBean.RxxpBean rxxp = RxxpBean.getResult().getRxxp();
         viewHolder.title.setText(rxxp.getCommodityList().get(i).getCommodityName());
         viewHolder.price.setText("￥"+rxxp.getCommodityList().get(i).getPrice());
         //加载图片
-        AbstractDraweeController controller = Fresco.newDraweeControllerBuilder()
+        final AbstractDraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setUri(rxxp.getCommodityList().get(i).getMasterPic())
                 .build();
         viewHolder.Image.setController(controller);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context,ParticularsActivity.class);
+                intent.putExtra("id",rxxp.getCommodityList().get(i).getCommodityId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

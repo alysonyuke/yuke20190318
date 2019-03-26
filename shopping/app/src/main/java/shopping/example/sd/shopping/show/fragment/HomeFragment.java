@@ -1,5 +1,6 @@
 package shopping.example.sd.shopping.show.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -7,13 +8,17 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.stx.xhb.xbanner.XBanner;
 
 import java.util.List;
 
+import shopping.example.sd.shopping.ParticularsActivity;
 import shopping.example.sd.shopping.R;
+import shopping.example.sd.shopping.SearchActivity;
+import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
@@ -35,6 +40,7 @@ public class HomeFragment extends PagerView implements ImpView {
     private int page=1;
     private int count=10;
     private RecyclerView rec;
+    private TextView search;
     @Override
     protected void intodata() {
     }
@@ -56,14 +62,13 @@ public class HomeFragment extends PagerView implements ImpView {
         hotsell.setLayoutManager(gridLayoutManager);
         GridLayoutManager manager=new GridLayoutManager(getActivity(),2);
         life.setLayoutManager(manager);
-        custom=view.findViewById(R.id.customview);
         show = new ShowPresent(this);
-        custom.setSearchData(new Custom.getSearchData() {
+        search=view.findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onRearchData(String s) {
-                rec.setVisibility(View.VISIBLE);
-                show.getSearchPresent(s,page,count);
-
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),SearchActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -79,11 +84,11 @@ public class HomeFragment extends PagerView implements ImpView {
                 xBanner.setData(result,null);
                 xBanner.loadImage(new XBanner.XBannerAdapter() {
                     @Override
-                    public void loadBanner(XBanner banner, Object model, View view, int position) {
+                    public void loadBanner(XBanner banner, Object model, View view, final int position) {
                         Glide.with(getActivity())
                                 .load(result.get(position).getImageUrl())
                                 .into((ImageView) view);
-                        xBanner.setPageChangeDuration(3000);
+                xBanner.setPageChangeDuration(3000);
                     }
                 });
             }
@@ -102,11 +107,15 @@ public class HomeFragment extends PagerView implements ImpView {
 
     @Override
     public void getSearchView(List<SearchBean.ResultBean> searchbean) {
-        Log.i("xxxx",searchbean.get(0).getCommodityName());
         GridLayoutManager gridLayoutManager1 = new GridLayoutManager(getActivity(), 2);
         rec.setLayoutManager(gridLayoutManager1);
         SearchAdapter searchAdapter = new SearchAdapter(getActivity(), searchbean);
         rec.setAdapter(searchAdapter);
+    }
+
+    @Override
+    public void getDetailsView(DstailsBean dstailsBean) {
+
     }
 
     @Override

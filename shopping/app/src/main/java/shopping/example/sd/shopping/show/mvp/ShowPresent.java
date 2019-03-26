@@ -2,6 +2,7 @@ package shopping.example.sd.shopping.show.mvp;
 
 import java.util.List;
 
+import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
@@ -43,6 +44,15 @@ public class ShowPresent {
         });
     }
 
+    public void getDstailsPresent(int id){
+        showModel.getDstailsModel(id);
+        showModel.setDstailsModel(new ShowModel.getDstailsModel() {
+            @Override
+            public void onDstailsModel(DstailsBean dstailsBean) {
+             impView.getDetailsView(dstailsBean);
+            }
+        });
+    }
     public void detach(){
         if (impView==null){
             impView=null;
