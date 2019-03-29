@@ -1,6 +1,7 @@
-package shopping.example.sd.shopping.show.mvp;
+package shopping.example.sd.shopping.mvp;
 
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -10,6 +11,8 @@ import shopping.example.sd.shopping.api.API;
 import shopping.example.sd.shopping.api.ApiService;
 import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
+import shopping.example.sd.shopping.bean.ShopBean;
+import shopping.example.sd.shopping.bean.ShopSearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
 import shopping.example.sd.shopping.utils.RetrofitUtils;
@@ -131,6 +134,71 @@ public class ShowModel {
                     public void onNext(DstailsBean dstailsBean) {
                         if (dstailsModel!=null){
                             dstailsModel.onDstailsModel(dstailsBean);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+    public interface getShopModel{
+        void onShopModel(ShopBean shopBean);
+    }
+    getShopModel shopModel;
+
+    public void setShopModel(getShopModel shopModel) {
+        this.shopModel = shopModel;
+    }
+
+    public void getShopModel(int userId, String sessionId, String data){
+         ApiService apiService = RetrofitUtils.getInstance().doPost(API.Url, ApiService.class);
+         apiService.getShopUrl(userId,sessionId,data).subscribeOn(Schedulers.io())
+                 .observeOn(AndroidSchedulers.mainThread())
+                 .subscribeWith(new DisposableSubscriber<ShopBean>() {
+                     @Override
+                     public void onNext(ShopBean shopBean) {
+                         if (shopModel!=null){
+                             shopModel.onShopModel(shopBean);
+                         }
+                     }
+
+                     @Override
+                     public void onError(Throwable t) {
+
+                     }
+
+                     @Override
+                     public void onComplete() {
+
+                     }
+                 });
+     }
+
+    public interface getSSmodel{
+        void onSSModel(ShopSearchBean searchBean);
+    }
+    getSSmodel sSmodel;
+
+    public void setsSmodel(getSSmodel sSmodel) {
+        this.sSmodel = sSmodel;
+    }
+    public void getSSmodel(int userId,String sessionId){
+        ApiService apiService = RetrofitUtils.getInstance().doPost(API.Url, ApiService.class);
+        apiService.getWatchUrl(userId,sessionId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSubscriber<ShopSearchBean>() {
+                    @Override
+                    public void onNext(ShopSearchBean searchBean) {
+                        if (sSmodel!=null){
+                            sSmodel.onSSModel(searchBean);
                         }
                     }
 

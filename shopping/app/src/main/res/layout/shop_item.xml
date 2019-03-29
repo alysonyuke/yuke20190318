@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/shop_delete"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="#FF5F71"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+        <!--你要显示的按钮-->
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/left_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/addminusView"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/shop_img"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/shop_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:ellipsize="end"
+                            android:lines="2"
+                            android:text="商品标题商品标题商品标题商品标题商品标题" />
+
+                        <TextView
+                            android:id="@+id/shop_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:ellipsize="end"
+                            android:lines="2"
+                            android:text="价格"
+                            android:textColor="#ff00"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <shopping.example.sd.shopping.adapter.AddMinView
+                    android:id="@+id/addminusView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"></shopping.example.sd.shopping.adapter.AddMinView>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</com.daimajia.swipe.SwipeLayout>

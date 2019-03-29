@@ -1,4 +1,4 @@
-package shopping.example.sd.shopping.show.adapter;
+package shopping.example.sd.shopping.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,13 +10,10 @@ import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import shopping.example.sd.shopping.ParticularsActivity;
 import shopping.example.sd.shopping.R;
+import shopping.example.sd.shopping.activity.ParticularsActivity;
 import shopping.example.sd.shopping.bean.ShowDataBean;
 
 

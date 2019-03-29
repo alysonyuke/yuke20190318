@@ -1,5 +1,6 @@
 package shopping.example.sd.shopping.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,11 +19,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import shopping.example.sd.shopping.R;
+import shopping.example.sd.shopping.activity.ShowActivity;
 import shopping.example.sd.shopping.login.bean.LoginBean;
 import shopping.example.sd.shopping.login.bean.RegsinBean;
 import shopping.example.sd.shopping.login.mvp.ImpView;
 import shopping.example.sd.shopping.login.mvp.LoginPresenter;
-import shopping.example.sd.shopping.show.ShowActivity;
 
 public class MainActivity extends AppCompatActivity implements ImpView {
     public boolean eye=true;
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements ImpView {
     private LoginPresenter loginPresenter;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private int userId;
+    private String sessionId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements ImpView {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         loginPresenter = new LoginPresenter(this);
-        sharedPreferences = getSharedPreferences("user", 0);
+        sharedPreferences = getSharedPreferences("user",Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         boolean ischeck = sharedPreferences.getBoolean("ischeck", false);
         if (ischeck){
@@ -101,8 +104,24 @@ public class MainActivity extends AppCompatActivity implements ImpView {
 
     @Override
     public void getLoginView(LoginBean.ResultBean loginBean) {
+
         if(loginBean instanceof LoginBean.ResultBean){
             Toast.makeText(this,"登陆成功",Toast.LENGTH_SHORT).show();
+            sessionId = loginBean.getSessionId();
+            userId = loginBean.getUserId();
+            String headPic = loginBean.getHeadPic();
+            String phone = loginBean.getPhone();
+            int sex = loginBean.getSex();
+            String nickName = loginBean.getNickName();
+            editor.putString("sessionId",sessionId);
+            editor.putInt("userId",userId);
+            editor.putString("headPic",headPic);
+            editor.putString("phone",phone);
+            editor.putString("sex",sex+"");
+            editor.putString("nickName",nickName);
+            editor.commit();
+
+
             Intent intent1=new Intent(MainActivity.this,ShowActivity.class);
             startActivity(intent1);finish();
         }else {

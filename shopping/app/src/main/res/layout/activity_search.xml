@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="shopping.example.sd.shopping.SearchActivity">
-    <shopping.example.sd.shopping.show.adapter.Custom
+    <shopping.example.sd.shopping.adapter.Custom
         android:id="@+id/searchcustom"
         android:layout_width="match_parent"
         android:layout_height="40dp">
-    </shopping.example.sd.shopping.show.adapter.Custom>
+    </shopping.example.sd.shopping.adapter.Custom>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

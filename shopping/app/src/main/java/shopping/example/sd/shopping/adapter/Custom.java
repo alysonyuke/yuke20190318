@@ -1,4 +1,4 @@
-package shopping.example.sd.shopping.show.adapter;
+package shopping.example.sd.shopping.adapter;
 
 import android.content.Context;
 import android.util.AttributeSet;

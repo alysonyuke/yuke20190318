@@ -1,13 +1,20 @@
 package shopping.example.sd.shopping.api;
 
+import java.util.Map;
 import io.reactivex.Flowable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
+import shopping.example.sd.shopping.bean.ShopBean;
+import shopping.example.sd.shopping.bean.ShopSearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
 import shopping.example.sd.shopping.login.bean.LoginBean;
@@ -33,4 +40,8 @@ public interface ApiService {
     Flowable<SearchBean>getSearchUrl(@Query("keyword") String keyword,@Query("page") int page,@Query("count") int count);
     @GET(API.DetailsUrl)
     Flowable<DstailsBean> getDetailsUrl(@Query("commodityId") int id);
+    @PUT(API.shoppingUrl)
+    Flowable<ShopBean> getShopUrl(@Header("userId") int userId, @Header("sessionId") String sessionId, @Query("data") String data);
+    @GET(API.searchUrl)
+    Flowable<ShopSearchBean> getWatchUrl(@Header("userId") int userId,@Header("sessionId") String sessionId);
 }

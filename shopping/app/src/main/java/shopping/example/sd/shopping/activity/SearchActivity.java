@@ -1,4 +1,4 @@
-package shopping.example.sd.shopping;
+package shopping.example.sd.shopping.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,14 +12,17 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import shopping.example.sd.shopping.R;
+import shopping.example.sd.shopping.adapter.Custom;
+import shopping.example.sd.shopping.adapter.SearchAdapter;
 import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
+import shopping.example.sd.shopping.bean.ShopBean;
+import shopping.example.sd.shopping.bean.ShopSearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
-import shopping.example.sd.shopping.show.adapter.Custom;
-import shopping.example.sd.shopping.show.adapter.SearchAdapter;
-import shopping.example.sd.shopping.show.mvp.ImpView;
-import shopping.example.sd.shopping.show.mvp.ShowPresent;
+import shopping.example.sd.shopping.mvp.ImpView;
+import shopping.example.sd.shopping.mvp.ShowPresent;
 
 public class SearchActivity extends AppCompatActivity implements ImpView {
 
@@ -73,6 +76,16 @@ public class SearchActivity extends AppCompatActivity implements ImpView {
 
     @Override
     public void getDetailsView(DstailsBean dstailsBean) {
+
+    }
+
+    @Override
+    public void getShopView(ShopBean shopBean) {
+
+    }
+
+    @Override
+    public void getSSView(ShopSearchBean searchBean) {
 
     }
 

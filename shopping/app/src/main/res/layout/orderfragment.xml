@@ -1,6 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/order_item"
+        android:layout_height="110dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/orderall"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/order_all"
+                    android:layout_height="40dp" />
+                <ImageView
+                    android:id="@+id/orderpay"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/order_unput"
+                    android:layout_height="40dp" />
+                <ImageView
+                    android:id="@+id/orderuntake"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/order_untake"
+                    android:layout_height="40dp" />
+                <ImageView
+                    android:id="@+id/ordersay"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/order_say"
+                    android:layout_height="40dp" />
+                <ImageView
+                    android:id="@+id/orderfinash"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/order_finsh"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="全部订单"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="待付款"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="待收货"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="待评价"
+                    />
+                <TextView
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="已完成"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/sel_order_recyc"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

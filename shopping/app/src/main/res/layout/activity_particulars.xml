@@ -77,16 +77,16 @@
     </ScrollView>
 
     <ImageView
-        android:id="@+id/Dstails_buy"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="30dp"
-        android:src="@drawable/dstails_buy" />
+    android:id="@+id/dstails_buy"
+    android:layout_width="35dp"
+    android:layout_height="35dp"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginRight="0dp"
+    android:layout_marginBottom="30dp"
+    android:src="@drawable/dstails_buy" />
     <ImageView
-        android:id="@+id/Dstails_add"
+        android:id="@+id/dstails_add"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:src="@drawable/dstails_add"

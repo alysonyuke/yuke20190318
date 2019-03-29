@@ -1,11 +1,20 @@
-package shopping.example.sd.shopping.show.mvp;
+package shopping.example.sd.shopping.mvp;
 
 import java.util.List;
+import java.util.Map;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
+import shopping.example.sd.shopping.api.API;
+import shopping.example.sd.shopping.api.ApiService;
 import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
+import shopping.example.sd.shopping.bean.ShopBean;
+import shopping.example.sd.shopping.bean.ShopSearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
+import shopping.example.sd.shopping.utils.RetrofitUtils;
 
 public class ShowPresent {
     ImpView impView;ShowModel showModel;
@@ -53,6 +62,27 @@ public class ShowPresent {
             }
         });
     }
+
+    public void getShopPresent(int userId, String sessionId, String data){
+        showModel.getShopModel(userId,sessionId,data);
+        showModel.setShopModel(new ShowModel.getShopModel() {
+            @Override
+            public void onShopModel(ShopBean shopBean) {
+                impView.getShopView(shopBean);
+            }
+        });
+    }
+
+    public void getSSPresent(int userId,String sessionId){
+        showModel.getSSmodel(userId,sessionId);
+        showModel.setsSmodel(new ShowModel.getSSmodel() {
+            @Override
+            public void onSSModel(ShopSearchBean searchBean) {
+                impView.getSSView(searchBean);
+            }
+        });
+    }
+
     public void detach(){
         if (impView==null){
             impView=null;

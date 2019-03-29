@@ -1,4 +1,4 @@
-package shopping.example.sd.shopping.show;
+package shopping.example.sd.shopping.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,11 +14,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import shopping.example.sd.shopping.R;
-import shopping.example.sd.shopping.show.fragment.CricleFragment;
-import shopping.example.sd.shopping.show.fragment.HomeFragment;
-import shopping.example.sd.shopping.show.fragment.MineFragment;
-import shopping.example.sd.shopping.show.fragment.OrderFragment;
-import shopping.example.sd.shopping.show.fragment.ShopFragment;
+import shopping.example.sd.shopping.fragment.CricleFragment;
+import shopping.example.sd.shopping.fragment.HomeFragment;
+import shopping.example.sd.shopping.fragment.MineFragment;
+import shopping.example.sd.shopping.fragment.OrderFragment;
+import shopping.example.sd.shopping.fragment.ShopFragment;
 
 public class ShowActivity extends AppCompatActivity {
 

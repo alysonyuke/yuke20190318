@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/shop_recycerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    <!--底部-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/checkboxall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全选"/>
+
+            <!--  style="@style/checkbox2"   -->
+            />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合计:"
+                android:layout_marginLeft="20dp"
+                />
+            <TextView
+                android:id="@+id/shop_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥0.0"
+                android:textSize="17sp"
+                android:textColor="#CF2424"
+                />
+        </LinearLayout>
+        <Button
+            android:id="@+id/shop_close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:background="#CF2424"
+            android:text="去结算"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+    </LinearLayout>
 </LinearLayout>

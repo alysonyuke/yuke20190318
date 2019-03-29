@@ -1,35 +1,36 @@
-package shopping.example.sd.shopping.show.fragment;
+package shopping.example.sd.shopping.fragment;
 
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.stx.xhb.xbanner.XBanner;
 
 import java.util.List;
 
-import shopping.example.sd.shopping.ParticularsActivity;
 import shopping.example.sd.shopping.R;
-import shopping.example.sd.shopping.SearchActivity;
+import shopping.example.sd.shopping.activity.SearchActivity;
 import shopping.example.sd.shopping.bean.DstailsBean;
 import shopping.example.sd.shopping.bean.SearchBean;
+import shopping.example.sd.shopping.bean.ShopBean;
+import shopping.example.sd.shopping.bean.ShopSearchBean;
 import shopping.example.sd.shopping.bean.ShowBannerBean;
 import shopping.example.sd.shopping.bean.ShowDataBean;
-import shopping.example.sd.shopping.show.adapter.Custom;
-import shopping.example.sd.shopping.show.adapter.HotsellAdapter;
-import shopping.example.sd.shopping.show.adapter.LifeAdapter;
-import shopping.example.sd.shopping.show.adapter.PagerView;
-import shopping.example.sd.shopping.show.adapter.SearchAdapter;
-import shopping.example.sd.shopping.show.adapter.StyleAdapter;
-import shopping.example.sd.shopping.show.mvp.ImpView;
-import shopping.example.sd.shopping.show.mvp.ShowPresent;
+import shopping.example.sd.shopping.adapter.Custom;
+import shopping.example.sd.shopping.adapter.HotsellAdapter;
+import shopping.example.sd.shopping.adapter.LifeAdapter;
+import shopping.example.sd.shopping.adapter.PagerView;
+import shopping.example.sd.shopping.adapter.SearchAdapter;
+import shopping.example.sd.shopping.adapter.StyleAdapter;
+import shopping.example.sd.shopping.mvp.ImpView;
+import shopping.example.sd.shopping.mvp.ShowPresent;
 
 public class HomeFragment extends PagerView implements ImpView {
     private XBanner xBanner;
@@ -53,7 +54,6 @@ public class HomeFragment extends PagerView implements ImpView {
         rec=view.findViewById(R.id.searchshow);
         showPresent = new ShowPresent((ImpView)this);
         showPresent.getBannerPresent();
-        ShowPresent present = new ShowPresent(this);
         showPresent.getDataPresent();
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(OrientationHelper.VERTICAL);
@@ -62,7 +62,6 @@ public class HomeFragment extends PagerView implements ImpView {
         hotsell.setLayoutManager(gridLayoutManager);
         GridLayoutManager manager=new GridLayoutManager(getActivity(),2);
         life.setLayoutManager(manager);
-        show = new ShowPresent(this);
         search=view.findViewById(R.id.search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +87,8 @@ public class HomeFragment extends PagerView implements ImpView {
                         Glide.with(getActivity())
                                 .load(result.get(position).getImageUrl())
                                 .into((ImageView) view);
-                xBanner.setPageChangeDuration(3000);
+                        xBanner.setPageChangeDuration(3000);
+
                     }
                 });
             }
@@ -115,6 +115,16 @@ public class HomeFragment extends PagerView implements ImpView {
 
     @Override
     public void getDetailsView(DstailsBean dstailsBean) {
+
+    }
+
+    @Override
+    public void getShopView(ShopBean shopBean) {
+
+    }
+
+    @Override
+    public void getSSView(ShopSearchBean searchBean) {
 
     }
 
