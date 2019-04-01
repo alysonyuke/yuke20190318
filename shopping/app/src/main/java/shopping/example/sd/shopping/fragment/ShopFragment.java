@@ -69,12 +69,12 @@ public class ShopFragment extends PagerView implements ImpView,ShopAdapter.getCl
         shopRecycerview.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(getActivity(), "刷新中....", Toast.LENGTH_SHORT).show();
                 shopRecycerview.refreshComplete();
             }
 
             @Override
             public void onLoadMore() {
+                shopRecycerview.refreshComplete();
             }
         });
         all.setOnClickListener(new View.OnClickListener() {
